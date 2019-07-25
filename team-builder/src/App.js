@@ -1,17 +1,22 @@
 import React, {useState} from 'react';
 import './App.css';
-import {peoples} from './data'
 import Form from './Form'
+import TeamMember from './components/TeamMember'
 
 
 
 function App() {
 
-  const [formState, setFormState] = useState([peoples])
-  
+  const [team, setTeam ] = useState([])
+  const [update, setUpdate] = useState({})
+  const [isUpdated, setIsUpdating] = useState(false)
+
+
   return (
-    <div className="App">
-     <Form />
+   <div>
+     <Form setTeam={setTeam} team={team} setUpdate={setUpdate} setIsUpdating={setIsUpdating} update={update} isUpdated={isUpdated}/>
+     <TeamMember team={team} setUpdate={setUpdate} setIsUpdating={setIsUpdating}/>
+   
     </div>
   );
 }
